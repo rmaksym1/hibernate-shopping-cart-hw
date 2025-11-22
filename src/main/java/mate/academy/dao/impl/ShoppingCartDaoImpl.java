@@ -49,6 +49,9 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
                     .uniqueResult();
 
             return Optional.ofNullable(shoppingCart);
+        } catch (Exception e) {
+            throw new DataProcessingException("Can't get ShoppingCart by user: "
+                    + user.getEmail(), e);
         }
     }
 
